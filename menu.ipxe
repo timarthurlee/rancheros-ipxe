@@ -1,4 +1,3 @@
-#isset ${base-url} || set base-url https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master
 dhcp
 menu iPXE boot menu
 item ros-none	Rancher OS Latest with no rancher-state
