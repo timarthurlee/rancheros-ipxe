@@ -1,7 +1,1 @@
-dhcp
-menu iPXE boot menu
-item ros-none	Rancher OS Latest with no rancher-state
-choose target && goto ${target}
-
-:ros-none
 chain https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/rancheros-latest.ipxe
