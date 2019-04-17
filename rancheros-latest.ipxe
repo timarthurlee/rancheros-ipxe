@@ -16,6 +16,6 @@ goto boot
 
 :boot
 imgfree
-kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sdb] rancher.cloud_init.datasources=[configdrive,file:cloud-config.yml] initrd=initrd
+kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sdb] rancher.password=rancher rancher.cloud_init.datasources=[configdrive,file:cloud-config.yml] initrd=initrd
 initrd http://${url}/${folder}/initrd
 boot
