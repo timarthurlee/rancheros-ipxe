@@ -1,10 +1,23 @@
 #!ipxe
-dhcp
-# Boot a persistent RancherOS to RAM
+# RancherOS
+# http://rancher.com/rancher-os/
 
-# Location of Kernel/Initrd images
-set base-url http://releases.rancher.com/os/latest
+:rancheros_menu
+set url releases.rancher.com
+menu RancherOS
+item latest RancherOS Latest (20 MB)
+choose version || goto rancheros_exit
+goto ${version}
 
-kernel ${base-url}/vmlinuz
-initrd ${base-url}/initrd
+:latest
+echo ${cls}
+set folder os/latest
+goto boot
+
+:boot
+echo Login in with username: rancher, password: rancher
+echo To install: ros install -d /dev/sda1
+imgfree
+kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sda] rancher.password=rancher initrd=initrd
+initrd http://${url}/${folder}/initrd
 boot
