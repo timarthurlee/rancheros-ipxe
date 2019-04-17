@@ -1,1 +1,2 @@
-chain https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/rancheros-latest.ipxe
+menu
+item test
