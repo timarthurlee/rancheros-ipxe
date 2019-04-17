@@ -6,7 +6,7 @@
 set url releases.rancher.com
 menu RancherOS
 item latest RancherOS Latest (20 MB)
-choose version || goto rancheros_exit
+choose --default latest --timeout 3000 version || goto rancheros_exit
 goto ${version}
 
 :latest
@@ -16,6 +16,6 @@ goto boot
 
 :boot
 imgfree
-kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sda] rancher.password=rancher initrd=initrd
+kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sdb] rancher.cloud_init.datasources=[configdrive,file:cloud-config.yml] initrd=initrd
 initrd http://${url}/${folder}/initrd
 boot
