@@ -1,3 +1,4 @@
+#!ipxe
 imgstat; prompt
 menu
 item test
