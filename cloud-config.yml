@@ -12,14 +12,14 @@ mounts:
   - /mnt/storage-nfs
   - nfs4
   - "nfsvers=4.1,proto=tcp,addr=192.168.10.11"
-- - /dev/sdc1
-  - /cache
-  - ext4
-  - ""
-- - /dev/sdd1
-  - /configs
-  - ext4
-  - ""
+#- - /dev/sdc1
+#  - /cache
+#  - ext4
+#  - ""
+#- - /dev/sdd1
+#  - /configs
+#  - ext4
+#  - ""
 rancher:
   console: ubuntu
   debug: false
@@ -30,13 +30,13 @@ rancher:
    fstype: auto
    dev: LABEL=RANCHER_STATE
    autoformat:
-     - /dev/sdb
+     - /dev/sda
+     - /dev/vda
   network:
     dns:
       nameservers:
         - 8.8.8.8
         - 8.8.4.4
-        - 192.168.10.1
     interfaces:
       eth0:
         dhcp: true
