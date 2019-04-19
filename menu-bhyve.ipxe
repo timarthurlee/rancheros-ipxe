@@ -1,0 +1,10 @@
+#!ipxe
+isset ${base-url} || set base-url https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master
+
+:start
+menu iPXE boot menu
+item ros-none	Rancher OS Latest with no rancher-state
+choose --default ros-none --timeout 3000 target && goto ${target}
+
+:ros-none
+chain ${base-url}/rancheros-latest.ipxe
