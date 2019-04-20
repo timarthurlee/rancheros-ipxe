@@ -1,0 +1,32 @@
+#!ipxe
+# RancherOS
+# http://rancher.com/rancher-os/
+
+set esc:hex 1b            # ANSI escape character - "^["
+set cls ${esc:string}[2J  # ANSI clear screen sequence - "^[[2J"
+
+:rancheros_menu
+set url releases.rancher.com
+menu RancherOS
+item latest RancherOS Latest
+item latest-nostate RancherOS Latest with no State
+choose --default latest --timeout 3000 version || goto rancheros_exit
+goto ${version}
+
+:latest
+echo ${cls}
+set folder os/latest
+set params rancher.state.autoformat=[/dev/sda,/dev/vda] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml]
+goto boot
+
+:latest-nostate
+echo ${cls}
+set folder os/latest
+set params rancher.state.dev=none console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml]
+goto boot
+
+:boot
+imgfree
+kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sda,/dev/vda] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml] initrd=initrd
+initrd http://${url}/${folder}/initrd
+boot
