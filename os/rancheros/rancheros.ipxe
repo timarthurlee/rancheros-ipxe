@@ -16,7 +16,7 @@ goto ${version}
 :latest
 echo ${cls}
 set folder os/latest
-set params rancher.state.autoformat=[/dev/sda,/dev/vda] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=['url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml']
+set params printk.devkmsg=on rancher.state.autoformat=[/dev/sda,/dev/vda] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=['url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml']
 goto boot
 
 :latest-nostate
