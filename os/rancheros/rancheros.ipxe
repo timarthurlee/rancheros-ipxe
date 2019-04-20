@@ -22,11 +22,11 @@ goto boot
 :latest-nostate
 echo ${cls}
 set folder os/latest
-set params rancher.state.dev=none console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml]
+set params rancher.state.dev=none rancher.debug=true console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml]
 goto boot
 
 :boot
 imgfree
-kernel http://${url}/${folder}/vmlinuz rancher.state.autoformat=[/dev/sda,/dev/vda] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml] initrd=initrd
+kernel http://${url}/${folder}/vmlinuz #{params} initrd=initrd
 initrd http://${url}/${folder}/initrd
 boot
