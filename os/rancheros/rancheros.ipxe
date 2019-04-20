@@ -10,7 +10,7 @@ set url releases.rancher.com
 menu RancherOS
 item latest RancherOS Latest
 item latest-nostate RancherOS Latest with no State
-choose --default latest --timeout 3000 version || goto rancheros_exit
+choose --default latest --timeout 6000 version || goto rancheros_exit
 goto ${version}
 
 :latest
