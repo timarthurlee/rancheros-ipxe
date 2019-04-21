@@ -5,8 +5,6 @@
 set esc:hex 1b            # ANSI escape character - "^["
 set cls ${esc:string}[2J  # ANSI clear screen sequence - "^[[2J"
 
-imgfetch ../../config/cloud-config.yml
-
 :rancheros_menu
 set url releases.rancher.com
 menu RancherOS
@@ -18,7 +16,7 @@ goto ${version}
 :latest
 echo ${cls}
 set folder os/latest
-set params printk.devkmsg=on rancher.state.autoformat=[/dev/sda,/dev/vda] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive]
+set params rancher.state.autoformat=[/dev/sdc,/dev/vdc] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive]
 goto boot
 
 :latest-nostate
