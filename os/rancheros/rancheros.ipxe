@@ -22,7 +22,7 @@ goto boot
 :latest-nostate
 echo ${cls}
 set folder os/latest
-set params rancher.cloud_init.datasources=['url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml'] rancher.password=rancher console=tty1 rancher.autologin=tty1
+set params rancher.state.dev=none rancher.cloud_init.datasources=[configdrive:/media/config-2] rancher.password=rancher console=tty1 rancher.autologin=tty1
 goto boot
 
 :boot
