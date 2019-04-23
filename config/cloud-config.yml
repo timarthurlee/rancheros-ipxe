@@ -7,11 +7,11 @@ mounts:
   - /mnt/storage
   - nfs4
   - "nfsvers=4.1,proto=tcp,addr=192.168.10.11"
-#- - /dev/sdc1
+#- - /dev/sdd1
 #  - /cache
 #  - ext4
 #  - ""
-#- - /dev/sdd1
+#- - /dev/sde1
 #  - /configs
 #  - ext4
 #  - ""
@@ -25,8 +25,8 @@ rancher:
    fstype: auto
    dev: LABEL=RANCHER_STATE
    autoformat:
-     - /dev/sda
-     - /dev/vda
+     - /dev/sdc
+     - /dev/vdc
   network:
 #    dns:
 #      nameservers:
