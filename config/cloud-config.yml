@@ -3,10 +3,6 @@ hostname: rancher-ipxe.lan
 ssh_authorized_keys:
   - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAtu/Wx3kIYugfpRdwn7ReTL5LCm7e39Noal9NaiZQ0WxsfiiCuUh2l5137niBK1K80F/SHAo/dHhUAAB6hso6ROjTYaJW48DypnnaBIhns4J2yynMUaMdQtoVUvyPY7yTIXUVJ2698IbBtVounPOlmFlUUCpDg+uaOO5gIp1rsMDLmKHz04OquqiICzmk8GG9aez8IfCFgrZdKAdXnELq/M9c9MkS+XE1xdd2LwcoNIO7MAJ5qL2Ql+Uv/76B78+Ef6CKeZwfdLwp0KGp10wiG9PbYq07jxNNz4B0KtNFOrOMD2bahqhF4D3Ru4X6r9ii7YU8Q0RV9VSJLQAOK3C0uw== rsa-key-20171028
 mounts:
-- - //192.168.10.11/storage
-  - /mnt/storage
-  - cifs
-  - "username=Docker,password=g5DecMqTTn4rHM,uid=1101,gid=1101,iocharset=utf8,vers=3.0,_netdev"
 - - 192.168.10.11:/mnt/storage
   - /mnt/storage-nfs
   - nfs4
