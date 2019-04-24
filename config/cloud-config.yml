@@ -7,14 +7,14 @@ mounts:
   - /mnt/storage
   - nfs4
   - "nfsvers=4.1,proto=tcp,addr=192.168.10.11"
-#- - /dev/sdd1
-#  - /cache
-#  - ext4
-#  - ""
-#- - /dev/sde1
-#  - /configs
-#  - ext4
-#  - ""
+- - /dev/sdd1
+  - /cache
+  - ext4
+  - ""
+- - /dev/sde1
+  - /configs
+  - ext4
+  - ""
 rancher:
   console: ubuntu
   debug: false
