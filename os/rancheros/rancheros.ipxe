@@ -11,7 +11,7 @@ menu RancherOS
 item v1.1.0 RancherOS v1.1.0
 item latest RancherOS Latest
 item latest-nostate RancherOS Latest with no State
-choose --default latest --timeout 6000 version || goto rancheros_exit
+choose --default v1.1.0 --timeout 6000 version || goto rancheros_exit
 goto ${version}
 
 :v1.1.0
