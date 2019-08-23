@@ -15,8 +15,8 @@ mounts:
   - /configs
   - ext4
   - ""
-- - 192.168.10.231:/mnt/media_optimized
-  - /mnt/media_optimized
+- - 192.168.10.231:/
+  - /mnt/storage_pearl
   - nfs4
   - "nfsvers=4.0,proto=tcp,addr=192.168.10.231"
 rancher:
