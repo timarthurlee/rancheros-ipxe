@@ -1,0 +1,41 @@
+#cloud-config
+hostname: rancher.lan
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAtu/Wx3kIYugfpRdwn7ReTL5LCm7e39Noal9NaiZQ0WxsfiiCuUh2l5137niBK1K80F/SHAo/dHhUAAB6hso6ROjTYaJW48DypnnaBIhns4J2yynMUaMdQtoVUvyPY7yTIXUVJ2698IbBtVounPOlmFlUUCpDg+uaOO5gIp1rsMDLmKHz04OquqiICzmk8GG9aez8IfCFgrZdKAdXnELq/M9c9MkS+XE1xdd2LwcoNIO7MAJ5qL2Ql+Uv/76B78+Ef6CKeZwfdLwp0KGp10wiG9PbYq07jxNNz4B0KtNFOrOMD2bahqhF4D3Ru4X6r9ii7YU8Q0RV9VSJLQAOK3C0uw== rsa-key-20171028
+mounts:
+- - 192.168.10.11:/mnt/storage
+  - /mnt/storage
+  - nfs4
+  - "nfsvers=4.1,proto=tcp,addr=192.168.10.11"
+- - /dev/sdd1
+  - /cache
+  - ext4
+  - ""
+- - /dev/sde1
+  - /configs
+  - ext4
+  - ""
+- - 192.168.10.231:/
+  - /mnt/storage_pearl
+  - nfs4
+  - "nfsvers=4.0,proto=tcp,addr=192.168.10.231"
+rancher:
+  console: ubuntu
+  debug: false
+  services_include:
+    zfs: true
+  state:
+   formatzero: true
+   fstype: auto
+   dev: LABEL=RANCHER_STATE
+   autoformat:
+     - /dev/sdc
+     - /dev/vdc
+  network:
+#    dns:
+#      nameservers:
+#        - 8.8.8.8
+#        - 8.8.4.4
+    interfaces:
+      eth0:
+        dhcp: true

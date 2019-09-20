@@ -7,4 +7,4 @@ item rancheros	Rancher OS
 choose --default rancheros --timeout 3000 target && goto ${target}
 
 :rancheros
-chain ${base-url}/os/rancheros/rancheros.ipxe
+chain ${base-url}/os/rancheros/rancheros-bhyve.ipxe

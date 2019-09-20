@@ -1,0 +1,45 @@
+#!ipxe
+# RancherOS
+# http://rancher.com/rancher-os/
+
+set esc:hex 1b            # ANSI escape character - "^["
+set cls ${esc:string}[2J  # ANSI clear screen sequence - "^[[2J"
+
+:rancheros_menu
+set url releases.rancher.com
+menu RancherOS
+item v1.1.0 RancherOS v1.1.0
+item v1.5.0 RancherOS v1.5.0
+item latest RancherOS Latest
+item latest-nostate RancherOS Latest with no State
+choose --default v1.5.0 --timeout 6000 version || goto rancheros_exit
+goto ${version}
+:v1.1.0
+echo ${cls}
+set folder os/v1.1.0
+set params rancher.state.autoformat=[/dev/sdc,/dev/vdc] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config-bhyve.yml']
+goto boot
+
+:v1.5.0
+echo ${cls}
+set folder os/v1.5.0
+set params rancher.state.autoformat=[/dev/sdc,/dev/vdc] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config-bhyve.yml']
+goto boot
+
+:latest
+echo ${cls}
+set folder os/latest
+set params rancher.state.autoformat=[/dev/sdc,/dev/vdc] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config-bhyve.yml']
+goto boot
+
+:latest-nostate
+echo ${cls}
+set folder os/latest
+set params rancher.state.dev=none rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config-bhyve.yml'] rancher.password=rancher console=tty1 rancher.autologin=tty1
+goto boot
+
+:boot
+imgfree
+kernel http://${url}/${folder}/vmlinuz ${params} initrd=initrd
+initrd http://${url}/${folder}/initrd
+boot
