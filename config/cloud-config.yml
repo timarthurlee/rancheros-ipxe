@@ -37,5 +37,5 @@ rancher:
 #        - 8.8.8.8
 #        - 8.8.4.4
     interfaces:
-      eth0:
+      ix0:
         dhcp: true
