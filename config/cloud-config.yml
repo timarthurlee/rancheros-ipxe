@@ -24,12 +24,12 @@ rancher:
   debug: false
   services_include:
     zfs: true
-  # state:
-  #  formatzero: true
-  #  fstype: auto
-  #  dev: LABEL=RANCHER_STATE
-  #  autoformat:
-  #    - /dev/sdc
+  state:
+   formatzero: true
+   fstype: auto
+   dev: /dev/zvol/storage/rancher-state
+   autoformat:
+     - /dev/zvol/storage/rancher-state
   #    - /dev/vdc
   network:
 #    dns:
