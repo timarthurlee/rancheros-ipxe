@@ -7,10 +7,10 @@ mounts:
   - /mnt/storage
   - zfs
   - ""
-# - - /dev/sdd1
-#   - /cache
-#   - ext4
-#   - ""
+- - /dev/zvol/storage/containers/configs
+  - /configs
+  - ext4
+  - ""
 # - - /dev/sde1
 #   - /configs
 #   - ext4
