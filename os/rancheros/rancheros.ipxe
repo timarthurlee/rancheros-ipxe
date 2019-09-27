@@ -29,7 +29,7 @@ goto boot
 :latest
 echo ${cls}
 set folder os/latest
-set params rancher.state.autoformat=[/dev/zvol/storage/rancher-state] rancher.state.dev=/dev/zvol/storage/rancher-state rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml']
+set params rancher.state.autoformat=[/dev/sdg] rancher.state.dev=/dev/zvol/storage/rancher-state rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1 rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml']
 goto boot
 
 :latest-nostate
