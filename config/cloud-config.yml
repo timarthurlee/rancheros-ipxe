@@ -7,7 +7,7 @@ mounts:
   - /mnt/storage
   - zfs
   - ""
-- - /dev/zvol/storage/containers/configs
+- - /dev/zvol/storage/containers/configs-part1
   - /configs
   - ext4
   - ""
