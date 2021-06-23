@@ -1,0 +1,15 @@
+dhcp
+set url releases.rancher.com
+set folder os/latest
+set params rancher.state.autoformat=[/dev/sde1] rancher.state.dev=LABEL=RANCHER_STATE rancher.state.wait rancher.password=rancher console=tty1 rancher.autologin=tty1
+set params2 rancher.cloud_init.datasources=[configdrive,'url:https://raw.githubusercontent.com/timarthurlee/rancheros-ipxe/master/config/cloud-config.yml']
+imgfree
+kernel http://${url}/${folder}/vmlinuz ${params} ${params2} initrd=initrd
+initrd http://${url}/${folder}/initrd
+boot
+
+
+
+#rancheros config below:
+sudo ros config set rancher.docker.storage_driver 'zfs'
+sudo ros config set rancher.docker.graph /mnt/storage/docker
