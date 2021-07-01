@@ -19,7 +19,6 @@ mounts:
 #   - /mnt/storage_pearl
 #   - nfs4
 #   - "nfsvers=4.0,proto=tcp,addr=192.168.10.231"
-<<<<<<< HEAD
 write_files:
   - path: /root/.docker/config.json
     permissions: "0755"
@@ -45,11 +44,6 @@ write_files:
           }
         }
       }
-=======
-docker:
-  storage_driver: zfs
-  graph: /mnt/storage/docker
->>>>>>> origin/master
 rancher:
   console: ubuntu
   debug: false
