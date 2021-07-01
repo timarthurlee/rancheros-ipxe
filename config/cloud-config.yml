@@ -19,31 +19,6 @@ mounts:
 #   - /mnt/storage_pearl
 #   - nfs4
 #   - "nfsvers=4.0,proto=tcp,addr=192.168.10.231"
-write_files:
-  - path: /root/.docker/config.json
-    permissions: "0755"
-    owner: rancher
-    content: |
-      {
-        "auths": {
-          "https://index.docker.io/v2/": {
-            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ="
-            "email": "timl@simplyitpro.com"
-          }
-        }
-      }
-  - path: /home/rancher/.docker/config.json
-    permissions: "0755"
-    owner: rancher
-    content: |
-      {
-        "auths": {
-          "https://index.docker.io/v2/": {
-            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ="
-            "email": "timl@simplyitpro.com"
-          }
-        }
-      }
 rancher:
   console: ubuntu
   debug: false
@@ -73,4 +48,29 @@ rancher:
 docker:
   graph: /mnt/storage/docker
   storage_driver: zfs
+write_files:
+  - path: /root/.docker/config.json
+    permissions: "0755"
+    owner: rancher
+    content: |
+      {
+        "auths": {
+          "https://index.docker.io/v2/": {
+            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ="
+            "email": "timl@simplyitpro.com"
+          }
+        }
+      }
+  - path: /home/rancher/.docker/config.json
+    permissions: "0755"
+    owner: rancher
+    content: |
+      {
+        "auths": {
+          "https://index.docker.io/v2/": {
+            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ="
+            "email": "timl@simplyitpro.com"
+          }
+        }
+      }
 
