@@ -56,7 +56,7 @@ write_files:
       {
         "auths": {
           "https://index.docker.io/v2/": {
-            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ="
+            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ=",
             "email": "timl@simplyitpro.com"
           }
         }
@@ -68,7 +68,7 @@ write_files:
       {
         "auths": {
           "https://index.docker.io/v2/": {
-            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ="
+            "auth": "dGltbDoxOWFhNzk5OS1kYjU1LTQ2MGQtODY5MC05MTYyOTJhNDBlOGQ=",
             "email": "timl@simplyitpro.com"
           }
         }
