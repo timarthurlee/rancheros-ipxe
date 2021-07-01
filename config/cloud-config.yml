@@ -24,6 +24,7 @@ rancher:
   debug: false
   services_include:
     zfs: true
+    kernel-extras: true
   state:
    formatzero: true
    fstype: auto
